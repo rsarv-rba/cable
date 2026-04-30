@@ -21,6 +21,54 @@ That's it. No fine-tuning, no post-processing.
 
 ---
 
+## Using the skill
+
+### GitHub Copilot CLI
+
+Install as a skill — the CLI will auto-activate it on `/cable`, `"be brief"`, `"less tokens"`, or `"cable mode"`:
+
+```bash
+mkdir -p ~/.agents/skills/cable
+cp cable.skill ~/.agents/skills/cable/SKILL.md
+```
+
+Then in any session:
+
+```
+/cable                 # explicit activate
+be brief               # auto-triggers
+less tokens            # auto-triggers
+normal mode            # deactivate
+```
+
+The skill stays active for the rest of the session until you turn it off.
+
+### Any AI tool (ChatGPT, Claude, Gemini, etc.)
+
+Paste this as the system prompt (or prepend to your first message):
+
+```
+Every word earns its place. Paid per word — make them count.
+DROP: filler, articles, hedging, pleasantries, preamble, postamble, question restatement.
+KEEP: all technical content, warnings, exact errors, decisions, code blocks verbatim.
+FORMAT: bullets > prose. Fragments OK.
+```
+
+### API / programmatic
+
+Add as a system message before your user message:
+
+```python
+messages = [
+    {"role": "system", "content": CABLE_PROMPT},
+    {"role": "user",   "content": your_prompt},
+]
+```
+
+> **Note:** Skip cable on thinking models (o1, o3, deepseek-r1, etc.) — the compression instruction increases chain-of-thought token usage, netting worse overall cost.
+
+---
+
 ## Results
 
 Benchmarked across 50 prompts in 6 categories (cs-technical, code-generation, architecture, non-cs, short-factual, creative) using distributed Ollama nodes.
