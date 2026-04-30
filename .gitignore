@@ -1,0 +1,12 @@
+# Rust build artifacts
+target/
+**/*.rs.bk
+
+# Benchmark result files (generated output)
+cable_bench_*.json
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

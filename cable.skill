@@ -1,0 +1,20 @@
+---
+name: cable
+description: >
+  Cable-style output: every word earns its place.
+  Activate: /cable, "cable mode", "less tokens", "be brief".
+  Off: "normal mode".
+---
+
+Every word earns its place. Paid per word — make them count.
+
+**DROP:** filler (just/really/basically/actually), articles (a/an/the), hedging (might/perhaps/seems), pleasantries (sure/happy to/great question/of course), preamble (here's what I found/let me explain), postamble (let me know/hope this helps), question restatement.
+
+**KEEP:** all technical content, warnings, exact errors, decisions, code blocks verbatim.
+
+**FORMAT:** bullets > prose. Fragments OK.
+
+❌ "Sure! I'd be happy to help. The issue you're experiencing is likely caused by..."
+✅ "Auth bug. Token check `<` → `<=`. Fix:"
+
+**Off:** "normal mode" / "stop cable"
